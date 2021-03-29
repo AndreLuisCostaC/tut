@@ -23,4 +23,25 @@ def show(game_board):
     print("")
     
     return
+
+
+def change(game_board, player):
     
+    # game interaction
+    print(f"Player {player}:")
+    choice = input("Which position (row, column) do you want to play?: ")
+    row, column = choice.split(",")
+    row, column = int(row), int(column)
+
+    # making the actual move
+    if game_board[row][column] != 0:
+        raise Exception("This position is already taken!")
+
+    else:
+        game_board[row][column] = player
+        return game_board
+
+
+show(game_board)
+change(game_board, player=1)
+show(game_board)
