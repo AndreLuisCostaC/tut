@@ -2,12 +2,12 @@ from itertools import cycle
 from helper_functions import (
     create_initial_game_board,
     show,
-    change,
+    make_move,
     determine_game_status
 )
 
 
-players = cycle([1, 2])
+players = cycle(["X", "O"])
 playing = True
 
 while playing:
@@ -24,7 +24,7 @@ while playing:
         valid_move = False
         while not valid_move:
             try: 
-                game_board = change(game_board, current_player)
+                game_board = make_move(game_board, current_player)
                 valid_move = True
                 
             except Exception as e:
